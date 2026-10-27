@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configurar Automatic Beedoo</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="settings">
+    <header>
+      <p class="eyebrow">Automatic Beedoo</p>
+      <h1>Configuração da Groq</h1>
+      <p>Salve a chave uma vez. Ela fica no armazenamento local da extensão e não é inserida no código-fonte.</p>
+    </header>
+
+    <form id="settings-form">
+      <label for="api-key">Chave da API Groq</label>
+      <input
+        id="api-key"
+        name="api-key"
+        type="password"
+        autocomplete="off"
+        placeholder="Deixe vazio para manter a chave já salva"
+      >
+      <p id="key-state" class="hint">Verificando configuração...</p>
+
+      <label for="model">Modelo</label>
+      <select id="model" name="model">
+        <option value="openai/gpt-oss-20b">openai/gpt-oss-20b (padrão)</option>
+        <option value="llama-3.1-8b-instant">llama-3.1-8b-instant (acesso limitado)</option>
+      </select>
+      <p class="warning">
+        A Groq descontinuou llama-3.1-8b-instant nos planos Free e Developer em 16/08/2026.
+        Ambos os modelos usam a API da Groq, apesar do nome do primeiro.
+      </p>
+
+      <fieldset>
+        <legend>Escopo da apresentação autorizada</legend>
+        <label for="lab-hostname">Hostname exato do ambiente do professor</label>
+        <input
+          id="lab-hostname"
+          name="lab-hostname"
+          type="text"
+          autocomplete="off"
+          placeholder="treinamento.exemplo.com"
+        >
+        <p class="hint">
+          Informe somente o hostname, sem caminho e sem curinga. A automação de apresentação fica sempre disponível nesse hostname.
+        </p>
+        <p class="warning">
+          A apresentação aguardará uma duração sorteada entre 15 e 19 minutos antes da tentativa de finalização.
+        </p>
+      </fieldset>
+
+      <div class="actions">
+        <button class="primary" type="submit">Salvar configuração</button>
+        <button id="test-connection" type="button">Testar conexão</button>
+        <button id="remove-key" class="danger" type="button">Remover chave</button>
+      </div>
+    </form>
+
+    <p id="status" role="status" aria-live="polite"></p>
+
+    <section class="security-note">
+      <h2>Observação de segurança</h2>
+      <p>
+        Extensões instaladas em modo desenvolvedor não conseguem ocultar um segredo com a mesma proteção de um servidor.
+        Não compartilhe a pasta ou o perfil do navegador com a chave configurada.
+      </p>
+    </section>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste visual - Automatic Beedoo</title>
+  <style>
+    body { margin: 0; padding: 40px; background: #f4f6f8; color: #17212b; font: 16px/1.5 Arial, sans-serif; }
+    main { max-width: 860px; margin: auto; }
+    .drop { padding: 24px; border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .question-header { margin-bottom: 18px; font-size: 20px; font-weight: 700; }
+    .answer { display: block; margin: 10px 0; padding: 12px; border: 1px solid #d8dee3; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Treinamento de segurança</h1>
+    <section class="drop">
+      <div class="question">
+        <div class="question-header">1) Qual é a principal diferença entre um incidente e um acidente?</div>
+        <label class="answer answer-label" for="answer-1">
+          <input id="answer-1" class="answer-input" type="radio" name="question-1">
+          O incidente sempre provoca lesões, enquanto o acidente causa apenas danos materiais.
+        </label>
+        <label class="answer answer-label" for="answer-2">
+          <input id="answer-2" class="answer-input" type="radio" name="question-1">
+          O incidente é uma ocorrência sem danos, mas com potencial para causar um acidente; o acidente gera consequências.
+        </label>
+        <label class="answer answer-label" for="answer-3">
+          <input id="answer-3" class="answer-input" type="radio" name="question-1">
+          Incidente e acidente possuem o mesmo significado.
+        </label>
+      </div>
+    </section>
+  </main>
+  <script src="fixture-chrome.js"></script>
+  <script src="../content.js"></script>
+</body>
+</html>

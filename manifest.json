@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Automatic Beedoo - Assistente de Estudos",
+  "version": "2.2.0",
+  "description": "Assistente Groq e automação delimitada para apresentação de segurança autorizada.",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://api.groq.com/*",
+    "*://*.beedoo.io/*",
+    "*://*.beedoo.com.br/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Configurar Automatic Beedoo"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.beedoo.io/*",
+        "*://*.beedoo.com.br/*"
+      ],
+      "js": [
+        "presentation-timing.js",
+        "content.js",
+        "lab-mode.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
